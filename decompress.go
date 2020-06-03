@@ -2,7 +2,7 @@ package main
 
 import "sync"
 
-var D1 [255]string
+var D1 [256]string
 var D2 [65536]string
 var ngramSize int
 
@@ -29,14 +29,16 @@ func createOutput(bvBytes []byte,streams [3][]string) []byte{
 
 func createDictionaryArray(wg *sync.WaitGroup,stream []byte,index int){
 	defer wg.Done()
+	counter := 0
 	if index == 1 {
-		ngramSize = int(stream[0])
 		for i:=1;i<len(stream);i+=ngramSize{
-			D1[i] = string(stream[i:i+ngramSize])
+			D1[counter] = string(stream[i:i+ngramSize])
+			counter++
 		}
 	} else if index == 2 {
 		for i:=0;i<len(stream);i+=ngramSize{
-			D2[i] = string(stream[i:i+ngramSize])
+			D2[counter] = string(stream[i:i+ngramSize])
+			counter++
 		}
 	}
 }
@@ -55,8 +57,11 @@ func decompress(stream ccStream) []byte {
 
 	var wg sync.WaitGroup
 
+	ngramSize =int(stream.D1[0])
 	go createDictionaryArray(&wg,stream.D1,1)
+	wg.Add(1)
 	go createDictionaryArray(&wg,stream.D2,2)
+	wg.Add(1)
 
 	wg.Wait()
 
