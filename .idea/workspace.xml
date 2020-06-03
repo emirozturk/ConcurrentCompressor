@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fea9c04-b6c4-40d6-85d2-3c281d29c6a6" name="Default Changelist" comment="Initial Commit">
-      <change afterPath="$PROJECT_DIR$/common.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fileOps.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/common.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/compress.go" beforeDir="false" afterPath="$PROJECT_DIR$/compress.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/decompress.go" beforeDir="false" afterPath="$PROJECT_DIR$/decompress.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileOps.go" beforeDir="false" afterPath="$PROJECT_DIR$/fileOps.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +62,7 @@
       <module name="ConcurrentCompressor" />
       <working_directory value="$PROJECT_DIR$/" />
       <go_parameters value="-i" />
-      <parameters value="-c C:\Users\emiro\Desktop\english.50MB 2" />
+      <parameters value="-c C:\Users\emiro\Desktop\english.50MB 4" />
       <kind value="DIRECTORY" />
       <filePath value="$PROJECT_DIR$/main.go" />
       <package value="D:\OyunlarVProgramlar\Github\emirozturk\ConcurrentCompressor\src" />
@@ -85,58 +83,62 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="179" key="#GOPATH/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582981066920" />
-    <state x="414" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591182341193">
+    <state x="414" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591212419417">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591182341193" />
+    <state x="414" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591212419417" />
     <state x="560" y="86" key="CommitChangelistDialog2" timestamp="1591190140599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="560" y="86" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591190140599" />
-    <state width="545" height="466" key="DebuggerActiveHint" timestamp="1591189698057">
+    <state width="545" height="466" key="DebuggerActiveHint" timestamp="1591212352538">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="545" height="466" key="DebuggerActiveHint/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591189698057" />
+    <state width="545" height="466" key="DebuggerActiveHint/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591212352538" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1591181939769">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591181939769" />
-    <state width="1877" height="236" key="GridCell.Tab.0.bottom" timestamp="1591196193343">
+    <state width="1877" height="236" key="GridCell.Tab.0.bottom" timestamp="1591212387420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="236" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591196193343" />
-    <state width="1877" height="236" key="GridCell.Tab.0.center" timestamp="1591196193343">
+    <state width="1877" height="236" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591212387420" />
+    <state width="1877" height="236" key="GridCell.Tab.0.center" timestamp="1591212387420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="236" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591196193343" />
-    <state width="1877" height="236" key="GridCell.Tab.0.left" timestamp="1591196193343">
+    <state width="1877" height="236" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591212387420" />
+    <state width="1877" height="236" key="GridCell.Tab.0.left" timestamp="1591212387420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="236" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591196193343" />
-    <state width="1877" height="236" key="GridCell.Tab.0.right" timestamp="1591196193343">
+    <state width="1877" height="236" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591212387420" />
+    <state width="1877" height="236" key="GridCell.Tab.0.right" timestamp="1591212387420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="236" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591196193343" />
-    <state width="1877" height="236" key="GridCell.Tab.1.bottom" timestamp="1591196193776">
+    <state width="1877" height="236" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591212387420" />
+    <state width="1877" height="236" key="GridCell.Tab.1.bottom" timestamp="1591212387420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="236" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591196193776" />
-    <state width="1877" height="236" key="GridCell.Tab.1.center" timestamp="1591196193776">
+    <state width="1877" height="236" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591212387420" />
+    <state width="1877" height="236" key="GridCell.Tab.1.center" timestamp="1591212387420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="236" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591196193776" />
-    <state width="1877" height="236" key="GridCell.Tab.1.left" timestamp="1591196193776">
+    <state width="1877" height="236" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591212387420" />
+    <state width="1877" height="236" key="GridCell.Tab.1.left" timestamp="1591212387420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="236" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591196193776" />
-    <state width="1877" height="236" key="GridCell.Tab.1.right" timestamp="1591196193776">
+    <state width="1877" height="236" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591212387420" />
+    <state width="1877" height="236" key="GridCell.Tab.1.right" timestamp="1591212387420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="236" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591196193776" />
+    <state width="1877" height="236" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591212387420" />
     <state x="461" y="163" key="SettingsEditor" timestamp="1582985395034">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="163" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582985395034" />
+    <state x="667" y="119" width="585" height="801" key="find.popup" timestamp="1591212084419">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="119" width="585" height="801" key="find.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591212084419" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1591182304328">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -145,86 +147,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>61</line>
-          <option name="timeStamp" value="146" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>60</line>
-          <option name="timeStamp" value="147" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>59</line>
-          <option name="timeStamp" value="148" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>57</line>
-          <option name="timeStamp" value="150" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>55</line>
-          <option name="timeStamp" value="151" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>56</line>
-          <option name="timeStamp" value="152" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>54</line>
-          <option name="timeStamp" value="153" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>53</line>
-          <option name="timeStamp" value="154" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>52</line>
-          <option name="timeStamp" value="155" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>50</line>
-          <option name="timeStamp" value="156" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>48</line>
-          <option name="timeStamp" value="157" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>49</line>
-          <option name="timeStamp" value="158" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>47</line>
-          <option name="timeStamp" value="159" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>46</line>
-          <option name="timeStamp" value="160" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>45</line>
-          <option name="timeStamp" value="161" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/fileOps.go</url>
-          <line>44</line>
-          <option name="timeStamp" value="162" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="DlvLineBreakpoint">
           <url>file://$PROJECT_DIR$/fileOps.go</url>
           <line>41</line>

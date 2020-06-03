@@ -14,12 +14,12 @@ func readFile(fileName string) []byte {
 	return inputBytes
 }
 func writeFile(fileName string,stream []byte){
-	dataStream,_ := os.Create(strings.Replace(fileName,".cc","",1))
+	dataStream,_ := os.Create(strings.Replace(fileName,".ccf",".cca",1))
 	_, _ = dataStream.Write(stream)
 	_ = dataStream.Close()
 }
 func readCCStream(fileName string) ccStream{
-	size:= strconv.IntSize
+	size:= strconv.IntSize/8
 	stream :=ccStream{}
 	dataStream ,_ := os.Open(fileName)
 	input, _ := ioutil.ReadAll(dataStream)
@@ -57,7 +57,7 @@ func writeCCStream(inputName string,stream ccStream){
 	output = append(output, stream.S3...)
 	output = append(output, stream.BV...)
 
-	dataStream, _ := os.Create(inputName+".cc")
+	dataStream, _ := os.Create(inputName+".ccf")
 	_, _ = dataStream.Write(output)
 	_ = dataStream.Close()
 }

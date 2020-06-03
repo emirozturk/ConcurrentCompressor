@@ -30,7 +30,7 @@ type concurrentString struct{
 	array []string
 }
 func uint32ToByteArray(intValue uint32) []byte {
-	buffer := make([]byte, strconv.IntSize)
+	buffer := make([]byte, strconv.IntSize/8)
 	binary.BigEndian.PutUint32(buffer, intValue)
 	return buffer
 }

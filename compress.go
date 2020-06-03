@@ -105,11 +105,11 @@ func createDictionaryStream(channel chan concurrentStream,ngramSize int, index i
 	var result concurrentStream
 	min:=0
 	max:=0
-	if index == 1{
+	if index == 5{
 		min = 0
 		max = int(math.Min(255, float64(len(sortedDictionary))))
 		result.stream = append(result.stream,byte(ngramSize))
-	}else if index == 2{
+	}else if index == 6{
 		min = 256
 		max = int(math.Min(65536, float64(len(sortedDictionary)-255)))
 	}
@@ -160,7 +160,7 @@ func compress(inputBytes []byte, ngramSize int) ccStream {
 	}
 
 	streamArray := [7][]byte{}
-	for i:=0;i<7;i++{
+	for i:=1;i<7;i++{
 		cs := <-streams
 		streamArray[cs.id] = cs.stream
 	}
