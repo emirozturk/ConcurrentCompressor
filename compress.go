@@ -98,6 +98,8 @@ func createBV(channel chan concurrentStream, inputBytes []byte, ngramSize int, D
 		}
 	}
 	result.stream = boolsToBytes(vector)
+	redunantBits:=byte(len(result.stream)*8 - len(vector))
+	result.stream = append([]byte{redunantBits},result.stream...)
 	result.id = index
 	channel <- result
 }
@@ -171,6 +173,5 @@ func compress(inputBytes []byte, ngramSize int) ccStream {
 	outputStream.BV = streamArray[4]
 	outputStream.D1 = streamArray[5]
 	outputStream.D2 = streamArray[6]
-
 	return outputStream
 }

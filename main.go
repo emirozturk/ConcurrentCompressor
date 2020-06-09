@@ -16,7 +16,7 @@ func main() {
 			stream := compress(readFile(fileName), ngramSize)
 			writeCCStream(fileName,stream)
 		}else{
-			fmt.Print("CC -c fileName ngramLength")
+			fmt.Print("Usage: CC -c fileName ngramLength")
 		}
 	} else if arguments[0] == "-d" {
 		if len(arguments)==2{
@@ -24,7 +24,7 @@ func main() {
 			output := decompress(readCCStream(fileName))
 			writeFile(fileName,output)
 		}else{
-			fmt.Print("CC -d fileName")
+			fmt.Print("Usage: CC -d fileName")
 		}
 	}
 }

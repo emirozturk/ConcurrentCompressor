@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/compress.go" beforeDir="false" afterPath="$PROJECT_DIR$/compress.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/decompress.go" beforeDir="false" afterPath="$PROJECT_DIR$/decompress.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,7 +19,7 @@
       </list>
     </option>
   </component>
-  <component name="GOROOT" path="C:\Go" />
+  <component name="GOROOT" path="/usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -34,6 +35,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultGoTemplateProperty" value="Go Application" />
     <property name="GO_FMT" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -41,7 +43,8 @@
     <property name="configurable.Module.GOPATH.is.expanded" value="false" />
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/main.go" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -56,18 +59,33 @@
       <recent name="D:\OyunlarVProgramlar\Github\emirozturk\ConcurrentCompressor\src" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="go build ConcurrentCompressor/" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+  <component name="RunManager" selected="Go Build.Compress">
+    <configuration name="Compress" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="ConcurrentCompressor" />
       <working_directory value="$PROJECT_DIR$/" />
       <go_parameters value="-i" />
-      <parameters value="-d C:\Users\emiro\Desktop\english.50MB.ccf" />
+      <parameters value="-c $USER_HOME$/Desktop/english.50MB 4" />
       <kind value="DIRECTORY" />
       <filePath value="$PROJECT_DIR$/main.go" />
       <package value="D:\OyunlarVProgramlar\Github\emirozturk\ConcurrentCompressor\src" />
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+    <configuration name="Decompress" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="ConcurrentCompressor" />
+      <working_directory value="$PROJECT_DIR$/" />
+      <go_parameters value="-i" />
+      <parameters value="-d $USER_HOME$/Desktop/english.50MB.ccf" />
+      <kind value="DIRECTORY" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="D:\OyunlarVProgramlar\Github\emirozturk\ConcurrentCompressor\src" />
+      <directory value="$PROJECT_DIR$/" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.Decompress" />
+      <item itemvalue="Go Build.Compress" />
+    </list>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
@@ -78,62 +96,64 @@
     <option name="LAST_COMMIT_MESSAGE" value="Initial Commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="179" key="#GOPATH" timestamp="1582981066920">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="362" y="136" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591694639043">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
-    <state x="552" y="179" key="#GOPATH/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582981066920" />
-    <state x="414" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591215526689">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
+    <state x="362" y="136" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1591694639043" />
     <state x="414" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591215526689" />
     <state x="560" y="86" key="CommitChangelistDialog2" timestamp="1591190140599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="560" y="86" key="CommitChangelistDialog2/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591190140599" />
-    <state width="545" height="466" key="DebuggerActiveHint" timestamp="1591215679887">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="612" height="471" key="DebuggerActiveHint" timestamp="1591696978183">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="612" height="471" key="DebuggerActiveHint/0.0.1680.1050@0.0.1680.1050" timestamp="1591696978183" />
     <state width="545" height="466" key="DebuggerActiveHint/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591215679887" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1591181939769">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591181939769" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1591215686316">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1638" height="364" key="GridCell.Tab.0.bottom" timestamp="1591694711915">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="1638" height="364" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1591694711915" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591215686316" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1591215686316">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1638" height="364" key="GridCell.Tab.0.center" timestamp="1591694711913">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="1638" height="364" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1591694711913" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591215686316" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1591215686316">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1638" height="364" key="GridCell.Tab.0.left" timestamp="1591694711913">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="1638" height="364" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1591694711913" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591215686316" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1591215686316">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1638" height="364" key="GridCell.Tab.0.right" timestamp="1591694711914">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="1638" height="364" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1591694711914" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591215686316" />
-    <state width="1877" height="236" key="GridCell.Tab.1.bottom" timestamp="1591215686313">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1638" height="364" key="GridCell.Tab.1.bottom" timestamp="1591694714893">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="1638" height="364" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1591694714893" />
     <state width="1877" height="236" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591215686313" />
-    <state width="1877" height="236" key="GridCell.Tab.1.center" timestamp="1591215686313">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1638" height="364" key="GridCell.Tab.1.center" timestamp="1591694714893">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="1638" height="364" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1591694714893" />
     <state width="1877" height="236" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591215686313" />
-    <state width="1877" height="236" key="GridCell.Tab.1.left" timestamp="1591215686313">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1638" height="364" key="GridCell.Tab.1.left" timestamp="1591694714892">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="1638" height="364" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1591694714892" />
     <state width="1877" height="236" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591215686313" />
-    <state width="1877" height="236" key="GridCell.Tab.1.right" timestamp="1591215686313">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1638" height="364" key="GridCell.Tab.1.right" timestamp="1591694714893">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="1638" height="364" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1591694714893" />
     <state width="1877" height="236" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591215686313" />
-    <state x="461" y="163" key="SettingsEditor" timestamp="1582985395034">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="163" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1582985395034" />
     <state x="667" y="119" width="585" height="801" key="find.popup" timestamp="1591212084419">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -142,91 +162,5 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591182304328" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>26</line>
-          <option name="timeStamp" value="208" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>22</line>
-          <option name="timeStamp" value="209" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>21</line>
-          <option name="timeStamp" value="210" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>18</line>
-          <option name="timeStamp" value="211" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>19</line>
-          <option name="timeStamp" value="212" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>17</line>
-          <option name="timeStamp" value="213" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>15</line>
-          <option name="timeStamp" value="214" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>14</line>
-          <option name="timeStamp" value="215" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>13</line>
-          <option name="timeStamp" value="216" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>12</line>
-          <option name="timeStamp" value="217" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>10</line>
-          <option name="timeStamp" value="218" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>11</line>
-          <option name="timeStamp" value="219" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>9</line>
-          <option name="timeStamp" value="220" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>20</line>
-          <option name="timeStamp" value="221" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>16</line>
-          <option name="timeStamp" value="222" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/decompress.go</url>
-          <line>78</line>
-          <option name="timeStamp" value="234" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

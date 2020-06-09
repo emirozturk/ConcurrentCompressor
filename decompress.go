@@ -1,6 +1,9 @@
 package main
 
-import "sync"
+import (
+	"encoding/binary"
+	"sync"
+)
 
 var D1 [256]string
 var D2 [65536]string
@@ -8,9 +11,11 @@ var ngramSize int
 
 func createOutput(bvBytes []byte,streams [3][]string) []byte{
 	var output []byte
-	bv := bytesToBools(bvBytes)
+	bv := bytesToBools(bvBytes[1:])
+	reduntantBits:=bvBytes[0]
+	length:=len(bv)-int(reduntantBits)
 	var s1Counter,s2Counter,s3Counter int
-	for i:=0;i<len(bv);i++{
+	for i:=0;i<length;i++{
 		if !bv[i]{
 				output = append(output, []byte(streams[0][s1Counter])...)
 				s1Counter++
@@ -22,6 +27,7 @@ func createOutput(bvBytes []byte,streams [3][]string) []byte{
 				output = append(output, []byte(streams[2][s3Counter])...)
 				s3Counter++
 			}
+			i++
 		}
 	}
 	return output
@@ -45,9 +51,18 @@ func createDictionaryArray(wg *sync.WaitGroup,stream []byte,index int){
 func createArray(channel chan concurrentString,stream []byte,index int){
 	cc := concurrentString{}
 	cc.id = index
-
-	for i:=0;i<len(stream);i+=ngramSize{
-		cc.array = append(cc.array, string(stream[i:i+ngramSize]))
+	if index == 1{
+		for i:=0;i<len(stream);i++{
+			cc.array = append(cc.array, D1[stream[i]])
+		}
+	}else if index ==2{
+		for i:=0;i<len(stream);i+=2{
+			cc.array = append(cc.array, D2[binary.BigEndian.Uint16(stream[i:i+2])])
+		}
+	}else if index == 3{
+		for i:=0;i<len(stream);i+=ngramSize{
+			cc.array = append(cc.array, string(stream[i:i+ngramSize]))
+		}
 	}
 
 	channel <-cc
@@ -73,7 +88,7 @@ func decompress(stream ccStream) []byte {
 
 	for i:=0;i<3;i++{
 		result := <-channel
-		stringArrays[result.id]=result.array
+		stringArrays[result.id-1]=result.array
 	}
 
 	output = createOutput(stream.BV,stringArrays)
