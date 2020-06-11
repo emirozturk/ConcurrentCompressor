@@ -1,4 +1,5 @@
 package main
+/*
 
 import (
 	"io/ioutil"
@@ -61,4 +62,4 @@ func writeCCStream(inputName string,stream ccStream){
 	_, _ = dataStream.Write(output)
 	_ = dataStream.Close()
 }
-
+*/

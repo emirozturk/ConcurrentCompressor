@@ -1,5 +1,5 @@
 package main
-
+/*
 import (
 	"encoding/binary"
 	"sync"
@@ -95,3 +95,4 @@ func decompress(stream ccStream) []byte {
 
 	return output
 }
+*/

@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7fea9c04-b6c4-40d6-85d2-3c281d29c6a6" name="Default Changelist" comment="Initial Commit">
+      <change afterPath="$PROJECT_DIR$/cc_test.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/common.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/compress.go" beforeDir="false" afterPath="$PROJECT_DIR$/compress.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/decompress.go" beforeDir="false" afterPath="$PROJECT_DIR$/decompress.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileOps.go" beforeDir="false" afterPath="$PROJECT_DIR$/fileOps.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,14 +47,14 @@
     <property name="configurable.Project.GOPATH.is.expanded" value="true" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/fileOps.go" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="com.intellij.profiler.configurations.ui.EditProfilerConfigurationsComponent" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -57,7 +62,7 @@
       <recent name="D:\OyunlarVProgramlar\Github\emirozturk\ConcurrentCompressor\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Go Build.Decompress">
+  <component name="RunManager" selected="Go Test.TestCompress in cc_test.go">
     <configuration name="Compress" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="ConcurrentCompressor" />
       <working_directory value="$PROJECT_DIR$/" />
@@ -80,10 +85,60 @@
       <directory value="$PROJECT_DIR$/" />
       <method v="2" />
     </configuration>
+    <configuration name="TestCompress in ConcurrentCompressor" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="ConcurrentCompressor" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/cc_test.go" />
+      <pattern value="^TestCompress$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestCompress in ConcurrentCompressor" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="ConcurrentCompressor" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/cc_test.go" />
+      <pattern value="^TestCompress$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestCompress in cc_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="ConcurrentCompressor" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/cc_test.go" />
+      <pattern value="^TestCompress$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestDecompress in cc_test.go" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="ConcurrentCompressor" />
+      <working_directory value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <kind value="FILE" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/cc_test.go" />
+      <pattern value="^TestDecompress$" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Go Build.Compress" />
       <item itemvalue="Go Build.Decompress" />
+      <item itemvalue="Go Test.TestCompress in cc_test.go" />
+      <item itemvalue="Go Test.TestDecompress in cc_test.go" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Test.TestCompress in cc_test.go" />
+        <item itemvalue="Go Test.TestDecompress in cc_test.go" />
+        <item itemvalue="Go Test.TestCompress in ConcurrentCompressor" />
+        <item itemvalue="Go Test.TestCompress in ConcurrentCompressor" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
@@ -102,11 +157,15 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="752" y="450" key="#GOROOT/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591884065382" />
-    <state x="414" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591888118831">
+    <state x="669" y="229" key="#TestCompress_in_cc_test.go" timestamp="1591901375324">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="669" y="229" key="#TestCompress_in_cc_test.go/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591901375324" />
+    <state x="414" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1591901695692">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="362" y="136" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1680.1050@0.0.1680.1050" timestamp="1591694639043" />
-    <state x="414" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591888118831" />
+    <state x="414" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591901695692" />
     <state x="560" y="86" key="CommitChangelistDialog2" timestamp="1591190140599">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -116,58 +175,66 @@
     </state>
     <state width="638" height="471" key="DebuggerActiveHint/0.0.1680.1050@0.0.1680.1050" timestamp="1591880266871" />
     <state width="545" height="466" key="DebuggerActiveHint/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591890870070" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1591181939769">
+    <state x="762" y="349" key="ExperimentsDialog" timestamp="1591899998892">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591181939769" />
-    <state width="1877" height="236" key="GridCell.Tab.0.bottom" timestamp="1591891455127">
+    <state x="762" y="349" key="ExperimentsDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591899998892" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1591901592313">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591901592313" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1591911779443">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1591880468667" />
     <state width="1638" height="300" key="GridCell.Tab.0.bottom/0.23.1680.976@0.23.1680.976" timestamp="1591864667219" />
-    <state width="1877" height="236" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591891455127" />
-    <state width="1877" height="236" key="GridCell.Tab.0.center" timestamp="1591891455127">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591911779443" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1591911779443">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1591880468666" />
     <state width="1638" height="300" key="GridCell.Tab.0.center/0.23.1680.976@0.23.1680.976" timestamp="1591864667218" />
-    <state width="1877" height="236" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591891455127" />
-    <state width="1877" height="236" key="GridCell.Tab.0.left" timestamp="1591891455127">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591911779443" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1591911779443">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1591880468665" />
     <state width="1638" height="300" key="GridCell.Tab.0.left/0.23.1680.976@0.23.1680.976" timestamp="1591864667218" />
-    <state width="1877" height="236" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591891455127" />
-    <state width="1877" height="236" key="GridCell.Tab.0.right" timestamp="1591891455127">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591911779443" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1591911779443">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1591880468666" />
     <state width="1638" height="300" key="GridCell.Tab.0.right/0.23.1680.976@0.23.1680.976" timestamp="1591864667219" />
-    <state width="1877" height="236" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591891455127" />
-    <state width="1877" height="236" key="GridCell.Tab.1.bottom" timestamp="1591891455079">
+    <state width="1877" height="282" key="GridCell.Tab.0.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591911779443" />
+    <state width="938" height="236" key="GridCell.Tab.1.bottom" timestamp="1591911673456">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1638" height="300" key="GridCell.Tab.1.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1591880468661" />
     <state width="1638" height="300" key="GridCell.Tab.1.bottom/0.23.1680.976@0.23.1680.976" timestamp="1591875773825" />
-    <state width="1877" height="236" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591891455079" />
-    <state width="1877" height="236" key="GridCell.Tab.1.center" timestamp="1591891455078">
+    <state width="938" height="236" key="GridCell.Tab.1.bottom/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591911673456" />
+    <state width="938" height="236" key="GridCell.Tab.1.center" timestamp="1591911673456">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1638" height="300" key="GridCell.Tab.1.center/0.0.1680.1050@0.0.1680.1050" timestamp="1591880468661" />
     <state width="1638" height="300" key="GridCell.Tab.1.center/0.23.1680.976@0.23.1680.976" timestamp="1591875773824" />
-    <state width="1877" height="236" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591891455078" />
-    <state width="1877" height="236" key="GridCell.Tab.1.left" timestamp="1591891455078">
+    <state width="938" height="236" key="GridCell.Tab.1.center/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591911673456" />
+    <state width="938" height="236" key="GridCell.Tab.1.left" timestamp="1591911673456">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1638" height="300" key="GridCell.Tab.1.left/0.0.1680.1050@0.0.1680.1050" timestamp="1591880468660" />
     <state width="1638" height="300" key="GridCell.Tab.1.left/0.23.1680.976@0.23.1680.976" timestamp="1591875773823" />
-    <state width="1877" height="236" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591891455078" />
-    <state width="1877" height="236" key="GridCell.Tab.1.right" timestamp="1591891455078">
+    <state width="938" height="236" key="GridCell.Tab.1.left/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591911673456" />
+    <state width="938" height="236" key="GridCell.Tab.1.right" timestamp="1591911673456">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1638" height="300" key="GridCell.Tab.1.right/0.0.1680.1050@0.0.1680.1050" timestamp="1591880468661" />
     <state width="1638" height="300" key="GridCell.Tab.1.right/0.23.1680.976@0.23.1680.976" timestamp="1591875773824" />
-    <state width="1877" height="236" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591891455078" />
+    <state width="938" height="236" key="GridCell.Tab.1.right/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591911673456" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1591900893308">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="164" key="SettingsEditor/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591900893308" />
     <state x="734" y="274" key="com.goide.refactor.move.GoMoveDeclarationDialog" timestamp="1591891237987">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -176,30 +243,19 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="119" width="585" height="801" key="find.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591212084419" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1591182304328">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1591899984340">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591182304328" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1591899984340" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/compress.go</url>
-          <line>72</line>
-          <option name="timeStamp" value="425" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DlvLineBreakpoint">
-          <url>file://$PROJECT_DIR$/compress.go</url>
-          <line>119</line>
-          <option name="timeStamp" value="427" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="GoApplicationRunConfiguration">
         <watch expression="D2[key]" language="go" />
       </configuration>
     </watches-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ConcurrentCompressor$TestCompress_in_cc_test_go.out" NAME="TestCompress in cc_test.go Coverage Results" MODIFIED="1591901601484" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="GoCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

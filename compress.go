@@ -1,4 +1,5 @@
 package main
+/*
 
 import (
 	"encoding/binary"
@@ -69,10 +70,6 @@ func createStream(channel chan concurrentStream, inputBytes []byte, ngramSize in
 		for i := 0; i < length; i += ngramSize {
 			bytes := inputBytes[i :i+ngramSize]
 			key := string(bytes)
-			if key == "d? A"{
-				x := 1
-				x= x +1
-			}
 			_, okD1 := D1[key]
 			_, okD2 := D2[key]
 			if !okD1 && !okD2 {
@@ -178,3 +175,4 @@ func compress(inputBytes []byte, ngramSize int) ccStream {
 	outputStream.D2 = streamArray[6]
 	return outputStream
 }
+*/
