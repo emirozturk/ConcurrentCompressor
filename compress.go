@@ -51,7 +51,7 @@ func createStream(channel chan concurrentStream, inputBytes []byte, ngramSize in
 		for i := 0; i < length; i += ngramSize {
 			key := string(inputBytes[i:i+ngramSize])
 			val, ok := D1[key]
-			if ok && val != 0 {
+			if ok {
 				result.stream = append(result.stream, byte(val))
 			}
 		}
@@ -69,6 +69,10 @@ func createStream(channel chan concurrentStream, inputBytes []byte, ngramSize in
 		for i := 0; i < length; i += ngramSize {
 			bytes := inputBytes[i :i+ngramSize]
 			key := string(bytes)
+			if key == "d? A"{
+				x := 1
+				x= x +1
+			}
 			_, okD1 := D1[key]
 			_, okD2 := D2[key]
 			if !okD1 && !okD2 {
@@ -113,7 +117,7 @@ func createDictionaryStream(channel chan concurrentStream,ngramSize int, index i
 		result.stream = append(result.stream,byte(ngramSize))
 	}else if index == 6{
 		min = 256
-		max = int(math.Min(65536, float64(len(sortedDictionary)-256)))
+		max = int(math.Min(65536+256, float64(len(sortedDictionary))))
 	}
 	for i:=min;i<max;i++{
 		result.stream = append(result.stream,[]byte(sortedDictionary[i].Key)...)
