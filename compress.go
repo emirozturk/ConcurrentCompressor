@@ -39,7 +39,7 @@ func createDictionary(channel chan concurrentDictionary, first int, last int, in
 	dictionary.dictionary = make(map[string]int)
 	last = int(math.Min(float64(len(sortedDictionary)), float64(last)))
 	for i := first; i < last; i++ {
-		dictionary.dictionary[sortedDictionary[i].Key] = i + 1
+		dictionary.dictionary[sortedDictionary[i].Key] = i
 	}
 	dictionary.id = index
 	channel <- dictionary
@@ -61,7 +61,7 @@ func createStream(channel chan concurrentStream, inputBytes []byte, ngramSize in
 			val, ok := D2[key]
 			if ok {
 				output := make([]byte, 2)
-				binary.BigEndian.PutUint16(output, uint16(val))
+				binary.BigEndian.PutUint16(output, uint16(val-256))
 				result.stream = append(result.stream, output...)
 			}
 		}
@@ -118,7 +118,6 @@ func createDictionaryStream(channel chan concurrentStream,ngramSize int, index i
 	for i:=min;i<max;i++{
 		result.stream = append(result.stream,[]byte(sortedDictionary[i].Key)...)
 	}
-	result.id = index
 	result.id = index
 	channel <- result
 }
