@@ -1,5 +1,5 @@
 package main
-/*
+
 import (
 	"encoding/binary"
 	"sync"
@@ -17,8 +17,8 @@ func createOutput(bvBytes []byte,streams [3][]string) []byte{
 	var s1Counter,s2Counter,s3Counter int
 	for i:=0;i<length;i++{
 		if !bv[i]{
-				output = append(output, []byte(streams[0][s1Counter])...)
-				s1Counter++
+			output = append(output, []byte(streams[0][s1Counter])...)
+			s1Counter++
 		} else if bv[i] {
 			if !bv[i+1] {
 				output = append(output, []byte(streams[1][s2Counter])...)
@@ -52,14 +52,17 @@ func createArray(channel chan concurrentString,stream []byte,index int){
 	cc := concurrentString{}
 	cc.id = index
 	if index == 1{
+		cc.array = make([]string,0,len(stream))
 		for i:=0;i<len(stream);i++{
 			cc.array = append(cc.array, D1[stream[i]])
 		}
 	}else if index ==2{
+		cc.array = make([]string,0,len(stream)/2)
 		for i:=0;i<len(stream);i+=2{
 			cc.array = append(cc.array, D2[binary.BigEndian.Uint16(stream[i:i+2])])
 		}
 	}else if index == 3{
+		cc.array = make([]string,0,len(stream)/ngramSize)
 		for i:=0;i<len(stream);i+=ngramSize{
 			cc.array = append(cc.array, string(stream[i:i+ngramSize]))
 		}
@@ -95,4 +98,3 @@ func decompress(stream ccStream) []byte {
 
 	return output
 }
-*/

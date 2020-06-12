@@ -1,5 +1,4 @@
 package main
-/*
 
 import (
 	"encoding/binary"
@@ -60,4 +59,3 @@ func bytesToBools(b []byte) []bool {
 	}
 	return t
 }
- */
