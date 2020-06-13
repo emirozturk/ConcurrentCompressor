@@ -7,15 +7,15 @@ import (
 	"sort"
 )
 
-var frequencyMap = make(map[string]*int)
+var frequencyMap = make(map[uint64]*int)
 var sortedDictionary []kv
 
-func extractNgrams(channel chan map[string]*int, block []byte, ngramSize int) {
-	fMap := make(map[string]*int)
+func extractNgrams(channel chan map[uint64]*int, block []byte, ngramSize int) {
+	fMap := make(map[uint64]*int)
 	length := len(block)
 	for i := 0; i < length; i += ngramSize {
 		ngram := block[i : i+ngramSize]
-		key := string(ngram)
+		key := byteArrayToUint64(ngram)
 		if fMap[key] == nil {
 			fMap[key] = new(int)
 		}
@@ -23,7 +23,7 @@ func extractNgrams(channel chan map[string]*int, block []byte, ngramSize int) {
 	}
 	channel <- fMap
 }
-func createFrequencyMap(array []map[string]*int) {
+func createFrequencyMap(array []map[uint64]*int) {
 	for _, ngrams := range array {
 		for key, value := range ngrams {
 			if frequencyMap[key] == nil {
@@ -43,7 +43,7 @@ func createSortedDictionary() {
 }
 func createDictionary(channel chan concurrentDictionary, first int, last int, index int) {
 	var dictionary concurrentDictionary
-	dictionary.dictionary = make(map[string]int)
+	dictionary.dictionary = make(map[uint64]int)
 	last = int(math.Min(float64(len(sortedDictionary)), float64(last)))
 	for i := first; i < last; i++ {
 		dictionary.dictionary[sortedDictionary[i].Key] = i
@@ -51,12 +51,12 @@ func createDictionary(channel chan concurrentDictionary, first int, last int, in
 	dictionary.id = index
 	channel <- dictionary
 }
-func createStream(channel chan concurrentStream, inputBytes []byte, ngramSize int, D1 map[string]int, D2 map[string]int, index int) {
+func createStream(channel chan concurrentStream, inputBytes []byte, ngramSize int, D1 map[uint64]int, D2 map[uint64]int, index int) {
 	var result concurrentStream
 	length := len(inputBytes)
 	if index == 1 {
 		for i := 0; i < length; i += ngramSize {
-			key := string(inputBytes[i : i+ngramSize])
+			key := byteArrayToUint64(inputBytes[i : i+ngramSize])
 			val, ok := D1[key]
 			if ok {
 				result.stream = append(result.stream, byte(val))
@@ -64,7 +64,7 @@ func createStream(channel chan concurrentStream, inputBytes []byte, ngramSize in
 		}
 	} else if index == 2 {
 		for i := 0; i < length; i += ngramSize {
-			key := string(inputBytes[i : i+ngramSize])
+			key := byteArrayToUint64(inputBytes[i : i+ngramSize])
 			val, ok := D2[key]
 			if ok {
 				output := make([]byte, 2)
@@ -75,7 +75,7 @@ func createStream(channel chan concurrentStream, inputBytes []byte, ngramSize in
 	} else if index == 3 {
 		for i := 0; i < length; i += ngramSize {
 			bytes := inputBytes[i : i+ngramSize]
-			key := string(bytes)
+			key := byteArrayToUint64(bytes)
 			_, okD1 := D1[key]
 			_, okD2 := D2[key]
 			if !okD1 && !okD2 {
@@ -86,12 +86,12 @@ func createStream(channel chan concurrentStream, inputBytes []byte, ngramSize in
 	result.id = index
 	channel <- result
 }
-func createBV(channel chan concurrentStream, inputBytes []byte, ngramSize int, D1 map[string]int, D2 map[string]int, index int) {
+func createBV(channel chan concurrentStream, inputBytes []byte, ngramSize int, D1 map[uint64]int, D2 map[uint64]int, index int) {
 	var result concurrentStream
 	var vector []bool
 	length := len(inputBytes)
 	for i := 0; i < length; i += ngramSize {
-		key := string(inputBytes[i : i+ngramSize])
+		key := byteArrayToUint64(inputBytes[i : i+ngramSize])
 		_, ok := D1[key]
 		if ok {
 			vector = append(vector, false)
@@ -123,7 +123,7 @@ func createDictionaryStream(channel chan concurrentStream, ngramSize int, index 
 		max = int(math.Min(65536+256, float64(len(sortedDictionary))))
 	}
 	for i := min; i < max; i++ {
-		result.stream = append(result.stream, []byte(sortedDictionary[i].Key)...)
+		result.stream = append(result.stream, uint64ToByteArray(sortedDictionary[i].Key)[0:ngramSize]...)
 	}
 	result.id = index
 	channel <- result
@@ -132,12 +132,12 @@ func compress(inputBytes []byte, ngramSize int) ccStream {
 	cpuCount := runtime.NumCPU()
 	blockSize := len(inputBytes) / cpuCount
 
-	frequencies := make(chan map[string]*int, cpuCount)
+	frequencies := make(chan map[uint64]*int, cpuCount)
 	for i := 0; i < cpuCount; i++ {
 		go extractNgrams(frequencies, inputBytes[i*blockSize:(i+1)*blockSize], ngramSize)
 	}
 
-	frequencyArray := make([]map[string]*int, cpuCount)
+	frequencyArray := make([]map[uint64]*int, cpuCount)
 	for i := 0; i < cpuCount; i++ {
 		frequencyArray[i] = <-frequencies
 	}
@@ -150,7 +150,7 @@ func compress(inputBytes []byte, ngramSize int) ccStream {
 	go createDictionary(dictionaries, 0, 256, 0)
 	go createDictionary(dictionaries, 256, 256+65536, 1)
 
-	dictionaryArray := [2]map[string]int{}
+	dictionaryArray := [2]map[uint64]int{}
 	for i := 0; i < 2; i++ {
 		buffer := <-dictionaries
 		dictionaryArray[buffer.id] = buffer.dictionary

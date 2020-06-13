@@ -14,7 +14,7 @@ type ccStream struct {
 	BV []byte
 }
 type kv struct {
-	Key   string
+	Key   uint64
 	Value *int
 }
 type concurrentStream struct {
@@ -23,7 +23,7 @@ type concurrentStream struct {
 }
 type concurrentDictionary struct {
 	id         int
-	dictionary map[string]int
+	dictionary map[uint64]int
 }
 type concurrentString struct{
 	id int
@@ -37,7 +37,16 @@ func uint32ToByteArray(intValue uint32) []byte {
 func byteArrayToUint32(byteArray []byte) uint32 {
 	return binary.BigEndian.Uint32(byteArray)
 }
-
+func uint64ToByteArray(intValue uint64) []byte {
+	buffer := make([]byte, strconv.IntSize*2/8)
+	binary.BigEndian.PutUint64(buffer, intValue)
+	return buffer
+}
+func byteArrayToUint64(byteArray []byte) uint64 {
+	array := make([]byte,8)
+	copy(array,byteArray)
+	return binary.BigEndian.Uint64(array)
+}
 func boolsToBytes(t []bool) []byte {
 	b := make([]byte, (len(t)+7)/8)
 	for i, x := range t {

@@ -4,9 +4,12 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"time"
 )
 
 func main() {
+	start := time.Now()
+
 	arguments := os.Args[1:]
 	if arguments[0] == "-c" {
 		if len(arguments)==3 {
@@ -26,4 +29,7 @@ func main() {
 			fmt.Print("Usage: CC -d fileName")
 		}
 	}
+
+	elapsed := time.Since(start).Milliseconds()
+	fmt.Printf("Execution time: %d ms", elapsed)
 }
