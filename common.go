@@ -25,10 +25,6 @@ type concurrentDictionary struct {
 	id         int
 	dictionary map[uint64]int
 }
-type concurrentByteArray struct{
-	id int
-	array [][]byte
-}
 func uint32ToByteArray(intValue uint32) []byte {
 	buffer := make([]byte, strconv.IntSize/8)
 	binary.BigEndian.PutUint32(buffer, intValue)
@@ -55,16 +51,4 @@ func boolsToBytes(t []bool) []byte {
 		}
 	}
 	return b
-}
-
-func bytesToBools(b []byte) []bool {
-	t := make([]bool, 8*len(b))
-	for i, x := range b {
-		for j := 0; j < 8; j++ {
-			if (x<<uint(j))&0x80 == 0x80 {
-				t[8*i+j] = true
-			}
-		}
-	}
-	return t
 }

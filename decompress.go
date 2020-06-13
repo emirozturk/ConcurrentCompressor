@@ -8,26 +8,34 @@ var D1 [256][]byte
 var D2 [65536][]byte
 var ngramSize int
 
-func createOutput(bvBytes []byte,streams [3][][]byte) []byte{
-	bv := bytesToBools(bvBytes[1:])
-	output := make([]byte,len(bv)*4/2)
+func createOutput(bvBytes []byte,streams [3][]byte) []byte{
+	bitCount := len(bvBytes[1:])*8
+	output := make([]byte,bitCount*4/2)
 	reduntantBits:=bvBytes[0]
-	length:=len(bv)-int(reduntantBits)
-	var s1Counter,s2Counter,s3Counter,outputCounter int
+	length:=bitCount-int(reduntantBits)
+
+	mask := [4]byte{192,48,12,3}
+	maskResults :=[4][3]byte{{0,128,192},{0,32,48},{0,8,12},{0,2,3}}
+	var s1Counter,s2Counter,s3Counter,outputCounter,shiftCounter,bvCounter int
+	bvCounter=1
 	for i:=0;i<length;i+=2{
-		if !bv[i]{
-			copy(output[outputCounter:],streams[0][s1Counter])
+		bitResult := bvBytes[bvCounter] & mask[shiftCounter]
+		if  bitResult == maskResults[shiftCounter][0]  {
+			copy(output[outputCounter:],streams[0][s1Counter*ngramSize:(s1Counter+1)*ngramSize])
 			s1Counter++
-		} else if bv[i] {
-			if !bv[i+1] {
-				copy(output[outputCounter:],streams[1][s2Counter])
-				s2Counter++
-			}else{
-				copy(output[outputCounter:],streams[2][s3Counter])
-				s3Counter++
-			}
+		} else if bitResult == maskResults[shiftCounter][1] {
+			copy(output[outputCounter:],streams[1][s2Counter*ngramSize:(s2Counter+1)*ngramSize])
+			s2Counter++
+		} else{
+			copy(output[outputCounter:],streams[2][s3Counter*ngramSize:(s3Counter+1)*ngramSize])
+			s3Counter++
 		}
 		outputCounter+=ngramSize
+		shiftCounter++
+		if shiftCounter==4 {
+			bvCounter++
+			shiftCounter=0
+		}
 	}
 	return output
 }
@@ -46,23 +54,27 @@ func createDictionaryArray(stream []byte,index int){
 		}
 	}
 }
-func createArray(channel chan concurrentByteArray,stream []byte,index int){
-	cc := concurrentByteArray{}
+func createArray(channel chan concurrentStream,stream []byte,index int){
+	cc := concurrentStream{}
 	cc.id = index
+	counter:=0
 	if index == 1{
-		cc.array = make([][]byte,0,len(stream))
+		cc.stream = make([]byte,len(stream)*ngramSize)
 		for i:=0;i<len(stream);i++{
-			cc.array = append(cc.array, D1[stream[i]])
+			copy(cc.stream[counter:],D1[stream[i]])
+			counter+=ngramSize
 		}
 	}else if index ==2{
-		cc.array = make([][]byte,0,len(stream)/2)
+		cc.stream = make([]byte,len(stream)*ngramSize/2)
 		for i:=0;i<len(stream);i+=2{
-			cc.array = append(cc.array, D2[binary.BigEndian.Uint16(stream[i:i+2])])
+			copy(cc.stream[counter:],D2[binary.BigEndian.Uint16(stream[i:i+2])])
+			counter+=ngramSize
 		}
 	}else if index == 3{
-		cc.array = make([][]byte,0,len(stream)/ngramSize)
+		cc.stream = make([]byte,len(stream))
 		for i:=0;i<len(stream);i+=ngramSize{
-			cc.array = append(cc.array, stream[i:i+ngramSize])
+			copy(cc.stream[counter:],stream[i:i+ngramSize])
+			counter+=ngramSize
 		}
 	}
 
@@ -73,15 +85,15 @@ func decompress(stream ccStream) []byte {
 	createDictionaryArray(stream.D1,1)
 	createDictionaryArray(stream.D2,2)
 
-	channel := make(chan concurrentByteArray,3)
-	byteArrayArrays := [3][][]byte{}
+	channel := make(chan concurrentStream,3)
+	byteArrayArrays := [3][]byte{}
 	go createArray(channel,stream.S1,1)
 	go createArray(channel,stream.S2,2)
 	go createArray(channel,stream.S3,3)
 
 	for i:=0;i<3;i++{
 		result := <-channel
-		byteArrayArrays[result.id-1]=result.array
+		byteArrayArrays[result.id-1]=result.stream
 	}
 
 	return createOutput(stream.BV,byteArrayArrays)
