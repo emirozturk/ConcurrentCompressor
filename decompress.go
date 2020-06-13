@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/binary"
-	"sync"
 )
 
 var D1 [256][]byte
@@ -10,31 +9,30 @@ var D2 [65536][]byte
 var ngramSize int
 
 func createOutput(bvBytes []byte,streams [3][][]byte) []byte{
-	var output []byte
 	bv := bytesToBools(bvBytes[1:])
+	output := make([]byte,len(bv)*4/2)
 	reduntantBits:=bvBytes[0]
 	length:=len(bv)-int(reduntantBits)
-	var s1Counter,s2Counter,s3Counter int
-	for i:=0;i<length;i++{
+	var s1Counter,s2Counter,s3Counter,outputCounter int
+	for i:=0;i<length;i+=2{
 		if !bv[i]{
-			output = append(output, streams[0][s1Counter]...)
+			copy(output[outputCounter:],streams[0][s1Counter])
 			s1Counter++
 		} else if bv[i] {
 			if !bv[i+1] {
-				output = append(output, streams[1][s2Counter]...)
+				copy(output[outputCounter:],streams[1][s2Counter])
 				s2Counter++
 			}else{
-				output = append(output, streams[2][s3Counter]...)
+				copy(output[outputCounter:],streams[2][s3Counter])
 				s3Counter++
 			}
-			i++
 		}
+		outputCounter+=ngramSize
 	}
 	return output
 }
 
-func createDictionaryArray(wg *sync.WaitGroup,stream []byte,index int){
-	defer wg.Done()
+func createDictionaryArray(stream []byte,index int){
 	counter := 0
 	if index == 1 {
 		for i:=1;i<len(stream);i+=ngramSize{
@@ -71,17 +69,9 @@ func createArray(channel chan concurrentByteArray,stream []byte,index int){
 	channel <-cc
 }
 func decompress(stream ccStream) []byte {
-	var output []byte
-
-	var wg sync.WaitGroup
-
 	ngramSize =int(stream.D1[0])
-	go createDictionaryArray(&wg,stream.D1,1)
-	wg.Add(1)
-	go createDictionaryArray(&wg,stream.D2,2)
-	wg.Add(1)
-
-	wg.Wait()
+	createDictionaryArray(stream.D1,1)
+	createDictionaryArray(stream.D2,2)
 
 	channel := make(chan concurrentByteArray,3)
 	byteArrayArrays := [3][][]byte{}
@@ -94,7 +84,5 @@ func decompress(stream ccStream) []byte {
 		byteArrayArrays[result.id-1]=result.array
 	}
 
-	output = createOutput(stream.BV,byteArrayArrays)
-
-	return output
+	return createOutput(stream.BV,byteArrayArrays)
 }

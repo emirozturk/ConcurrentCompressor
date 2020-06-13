@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7fea9c04-b6c4-40d6-85d2-3c281d29c6a6" name="Default Changelist" comment="Initial Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common.go" beforeDir="false" afterPath="$PROJECT_DIR$/common.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/compress.go" beforeDir="false" afterPath="$PROJECT_DIR$/compress.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/decompress.go" beforeDir="false" afterPath="$PROJECT_DIR$/decompress.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
