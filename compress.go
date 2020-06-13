@@ -7,29 +7,23 @@ import (
 	"sort"
 )
 
-var frequencyMap = make(map[uint64]*int)
+var frequencyMap = make(map[uint64]int)
 var sortedDictionary []kv
 
-func extractNgrams(channel chan map[uint64]*int, block []byte, ngramSize int) {
-	fMap := make(map[uint64]*int)
+func extractNgrams(channel chan map[uint64]int, block []byte, ngramSize int) {
+	fMap := make(map[uint64]int)
 	length := len(block)
 	for i := 0; i < length; i += ngramSize {
-		ngram := block[i : i+ngramSize]
+		ngram := block[i:i+ngramSize]
 		key := byteArrayToUint64(ngram)
-		if fMap[key] == nil {
-			fMap[key] = new(int)
-		}
-		*fMap[key]++
+		fMap[key]++
 	}
 	channel <- fMap
 }
-func createFrequencyMap(array []map[uint64]*int) {
+func createFrequencyMap(array []map[uint64]int) {
 	for _, ngrams := range array {
 		for key, value := range ngrams {
-			if frequencyMap[key] == nil {
-				frequencyMap[key] = new(int)
-			}
-			*frequencyMap[key] += *value
+			frequencyMap[key] += value
 		}
 	}
 }
@@ -38,7 +32,7 @@ func createSortedDictionary() {
 		sortedDictionary = append(sortedDictionary, kv{k, v})
 	}
 	sort.Slice(sortedDictionary, func(i, j int) bool {
-		return *sortedDictionary[i].Value > *sortedDictionary[j].Value
+		return sortedDictionary[i].Value > sortedDictionary[j].Value
 	})
 }
 func createDictionary(channel chan concurrentDictionary, first int, last int, index int) {
@@ -132,12 +126,12 @@ func compress(inputBytes []byte, ngramSize int) ccStream {
 	cpuCount := runtime.NumCPU()
 	blockSize := len(inputBytes) / cpuCount
 
-	frequencies := make(chan map[uint64]*int, cpuCount)
+	frequencies := make(chan map[uint64]int, cpuCount)
 	for i := 0; i < cpuCount; i++ {
 		go extractNgrams(frequencies, inputBytes[i*blockSize:(i+1)*blockSize], ngramSize)
 	}
 
-	frequencyArray := make([]map[uint64]*int, cpuCount)
+	frequencyArray := make([]map[uint64]int, cpuCount)
 	for i := 0; i < cpuCount; i++ {
 		frequencyArray[i] = <-frequencies
 	}

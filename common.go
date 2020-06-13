@@ -15,7 +15,7 @@ type ccStream struct {
 }
 type kv struct {
 	Key   uint64
-	Value *int
+	Value int
 }
 type concurrentStream struct {
 	id     int
@@ -25,9 +25,9 @@ type concurrentDictionary struct {
 	id         int
 	dictionary map[uint64]int
 }
-type concurrentString struct{
+type concurrentByteArray struct{
 	id int
-	array []string
+	array [][]byte
 }
 func uint32ToByteArray(intValue uint32) []byte {
 	buffer := make([]byte, strconv.IntSize/8)
