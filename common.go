@@ -43,12 +43,3 @@ func byteArrayToUint64(byteArray []byte) uint64 {
 	copy(array,byteArray)
 	return binary.BigEndian.Uint64(array)
 }
-func boolsToBytes(t []bool) []byte {
-	b := make([]byte, (len(t)+7)/8)
-	for i, x := range t {
-		if x {
-			b[i/8] |= 0x80 >> uint(i%8)
-		}
-	}
-	return b
-}
