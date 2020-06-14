@@ -15,27 +15,18 @@ func createOutput(bvBytes []byte,streams [3][]byte) []byte{
 	length:=bitCount-int(redundantBits)
 
 	mask := [4]byte{192,48,12,3}
-	maskResults :=[4][3]byte{{0,128,192},{0,32,48},{0,8,12},{0,2,3}}
-	var s1Counter,s2Counter,s3Counter,outputCounter,shiftCounter,bvCounter int
-	bvCounter=1
+	counter := [3]int{}
+	var outputCounter,bvCounter,shiftCounter int
+	bvCounter=0
 	for i:=0;i<length;i+=2{
-		bitResult := bvBytes[bvCounter] & mask[shiftCounter]
-		if  bitResult == maskResults[shiftCounter][0]  {
-			copy(output[outputCounter:],streams[0][s1Counter*ngramSize:(s1Counter+1)*ngramSize])
-			s1Counter++
-		} else if bitResult == maskResults[shiftCounter][1] {
-			copy(output[outputCounter:],streams[1][s2Counter*ngramSize:(s2Counter+1)*ngramSize])
-			s2Counter++
-		} else{
-			copy(output[outputCounter:],streams[2][s3Counter*ngramSize:(s3Counter+1)*ngramSize])
-			s3Counter++
-		}
-		outputCounter+=ngramSize
-		shiftCounter++
-		if shiftCounter==4 {
+		shiftCounter = (i>>1) & 3
+		if shiftCounter == 0 {
 			bvCounter++
-			shiftCounter=0
 		}
+		bitResult := (bvBytes[bvCounter] & mask[shiftCounter]) >> (6 - shiftCounter*2)
+		copy(output[outputCounter:],streams[bitResult][counter[bitResult]*ngramSize:(counter[bitResult]+1)*ngramSize])
+		counter[bitResult]++
+		outputCounter+=ngramSize
 	}
 	return output
 }

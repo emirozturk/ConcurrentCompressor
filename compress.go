@@ -86,7 +86,7 @@ func createBV(channel chan concurrentStream, inputBytes []byte, ngramSize int, D
 	result.stream = make([]byte, length/ngramSize/4)
 
 	var shiftCounter, bvCounter int
-	maskResults := [4][3]byte{{0, 128, 192}, {0, 32, 48}, {0, 8, 12}, {0, 2, 3}}
+	maskResults := [4][3]byte{{0, 64, 128}, {0, 16, 32}, {0, 4, 8}, {0, 1, 2}}
 	for i := 0; i < length; i += ngramSize {
 		key := byteArrayToUint64(inputBytes[i : i+ngramSize])
 		_, ok := D1[key]
