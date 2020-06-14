@@ -82,25 +82,32 @@ func createStream(channel chan concurrentStream, inputBytes []byte, ngramSize in
 }
 func createBV(channel chan concurrentStream, inputBytes []byte, ngramSize int, D1 map[uint64]int, D2 map[uint64]int, index int) {
 	var result concurrentStream
-	var vector []bool
 	length := len(inputBytes)
+	result.stream = make([]byte, length/ngramSize/4)
+
+	var shiftCounter, bvCounter int
+	maskResults := [4][3]byte{{0, 128, 192}, {0, 32, 48}, {0, 8, 12}, {0, 2, 3}}
 	for i := 0; i < length; i += ngramSize {
 		key := byteArrayToUint64(inputBytes[i : i+ngramSize])
 		_, ok := D1[key]
 		if ok {
-			vector = append(vector, false)
+			result.stream[bvCounter] |= maskResults[shiftCounter][0]
 		} else {
 			_, ok := D2[key]
 			if ok {
-				vector = append(vector, true, false)
+				result.stream[bvCounter] |= maskResults[shiftCounter][1]
 			} else {
-				vector = append(vector, true, true)
+				result.stream[bvCounter] |= maskResults[shiftCounter][2]
 			}
 		}
+		shiftCounter++
+		if shiftCounter == 4 {
+			shiftCounter = 0
+			bvCounter++
+		}
 	}
-	result.stream = boolsToBytes(vector)
-	redunantBits := byte(len(result.stream)*8 - len(vector))
-	result.stream = append([]byte{redunantBits}, result.stream...)
+	redundantBits := byte((8 - shiftCounter*2)%8)
+	result.stream = append([]byte{redundantBits}, result.stream...)
 	result.id = index
 	channel <- result
 }

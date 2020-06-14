@@ -11,8 +11,8 @@ var ngramSize int
 func createOutput(bvBytes []byte,streams [3][]byte) []byte{
 	bitCount := len(bvBytes[1:])*8
 	output := make([]byte,bitCount*4/2)
-	reduntantBits:=bvBytes[0]
-	length:=bitCount-int(reduntantBits)
+	redundantBits:=bvBytes[0]
+	length:=bitCount-int(redundantBits)
 
 	mask := [4]byte{192,48,12,3}
 	maskResults :=[4][3]byte{{0,128,192},{0,32,48},{0,8,12},{0,2,3}}
