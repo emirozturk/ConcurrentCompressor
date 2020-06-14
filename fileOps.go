@@ -23,6 +23,8 @@ func readCCStream(fileName string) ccStream {
 	stream := ccStream{}
 	dataStream, _ := os.Open(fileName)
 	input, _ := ioutil.ReadAll(dataStream)
+	emptyBytes := input[0]
+	input = input[1:]
 	lenArray := [6]int{}
 	streamArray := [6][]byte{}
 	for i := 0; i < 6; i++ {
@@ -33,6 +35,7 @@ func readCCStream(fileName string) ccStream {
 		streamArray[i] = input[offset : offset+lenArray[i]]
 		offset += lenArray[i]
 	}
+	stream.emptyBytes = emptyBytes
 	stream.D1 = streamArray[0]
 	stream.D2 = streamArray[1]
 	stream.S1 = streamArray[2]
@@ -43,6 +46,7 @@ func readCCStream(fileName string) ccStream {
 }
 func writeCCStream(inputName string, stream ccStream) {
 	var output []byte
+	output = append(output, stream.emptyBytes)
 	output = append(output, uint32ToByteArray(uint32(len(stream.D1)))...)
 	output = append(output, uint32ToByteArray(uint32(len(stream.D2)))...)
 	output = append(output, uint32ToByteArray(uint32(len(stream.S1)))...)

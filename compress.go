@@ -130,6 +130,10 @@ func createDictionaryStream(channel chan concurrentStream, ngramSize int, index 
 	channel <- result
 }
 func compress(inputBytes []byte, ngramSize int) ccStream {
+	emptyBytesLen := (ngramSize-(len(inputBytes)%ngramSize))%ngramSize
+	emptyBytes := make([]byte,emptyBytesLen)
+	inputBytes = append(inputBytes,emptyBytes...)
+
 	cpuCount := runtime.NumCPU()
 	blockSize := len(inputBytes) / cpuCount
 
@@ -177,6 +181,7 @@ func compress(inputBytes []byte, ngramSize int) ccStream {
 		streamArray[cs.id] = cs.stream
 	}
 	outputStream := ccStream{}
+	outputStream.emptyBytes = byte(emptyBytesLen)
 	outputStream.S1 = streamArray[1]
 	outputStream.S2 = streamArray[2]
 	outputStream.S3 = streamArray[3]

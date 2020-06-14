@@ -95,6 +95,6 @@ func decompress(stream ccStream) []byte {
 		result := <-channel
 		byteArrayArrays[result.id-1]=result.stream
 	}
-
-	return createOutput(stream.BV,byteArrayArrays)
+	result := createOutput(stream.BV,byteArrayArrays)
+	return result[0:len(result)-int(stream.emptyBytes)]
 }

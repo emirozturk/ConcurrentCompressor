@@ -6,6 +6,7 @@ import (
 )
 
 type ccStream struct {
+	emptyBytes byte
 	D1 []byte
 	D2 []byte
 	S1 []byte
