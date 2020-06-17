@@ -1,4 +1,4 @@
-#Concurrent Compressor  
+# Concurrent Compressor  
 Concurrent compressor is a concurrent n-gram based semi-static compression algorithm. It aims to compress big text files faster with it's concurrent architecture.
 
 ## Features
