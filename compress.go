@@ -82,8 +82,8 @@ func createStream(channel chan concurrentStream, inputBytes []byte, ngramSize in
 }
 func createBV(channel chan concurrentStream, inputBytes []byte, ngramSize int, D1 map[uint64]int, D2 map[uint64]int, index int) {
 	var result concurrentStream
-	length := len(inputBytes)
-	result.stream = make([]byte, length/ngramSize/4)
+	length :=len(inputBytes)
+	result.stream = make([]byte, int(math.Ceil(float64(length /ngramSize)/ float64(4))))
 
 	var shiftCounter, bvCounter int
 	maskResults := [4][3]byte{{0, 64, 128}, {0, 16, 32}, {0, 4, 8}, {0, 1, 2}}
